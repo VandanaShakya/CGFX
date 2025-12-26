@@ -1,4 +1,5 @@
 import React from 'react'
+import Fund from '../../components/Fund'
 
 const RiskDisclouser = () => {
   return (
@@ -162,6 +163,9 @@ const RiskDisclouser = () => {
         </div>
       </div>
     </section>
+
+
+    <Fund/>
     </>
   )
 }

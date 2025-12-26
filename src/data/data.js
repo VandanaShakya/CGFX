@@ -4,8 +4,8 @@ import {
   TrendingUp,
   RefreshCcw,
   LayoutGrid,
-   Coins, RefreshCw
-} from "lucide-react";
+  Activity, Globe, Monitor}
+   from "lucide-react";
 
 import images from "../assets/images";
 export const features = [
@@ -201,3 +201,249 @@ export const testimonials = [
     { title: "Risk Disclosure Policy Saint Lucia", href: "#" },
     { title: "Privacy Policy Saint Lucia", href: "#" },
   ];
+
+  export const accounts = [
+  {
+    category: "Retail",
+    type: "Standard",
+    spread: "1.5",
+    unit: "pips",
+    commission: "No Commission",
+    buttonText: "Open Standard Account",
+    features: [
+      { label: "Min. deposit", value: "$100" },
+      { label: "Min. volume per trade", value: "0.01" },
+      { label: "Max Leverage", value: "1:500" },
+      { label: "Spread type", value: "Variable" },
+      { label: "Spread", value: "From 1.5" },
+      { label: "Swap free", value: "*Yes" },
+    ],
+  },
+  {
+    category: "Professional",
+    type: "Elite",
+    spread: "0.8",
+    unit: "pips",
+    commission: "No Commission",
+    highlighted: true,
+    buttonText: "Open Elite Account",
+    features: [
+      { label: "Min. deposit", value: "$5000" },
+      { label: "Min. volume per trade", value: "0.01" },
+      { label: "Max Leverage", value: "1:300" },
+      { label: "Spread type", value: "Variable" },
+      { label: "Spread", value: "From 0.8" },
+      { label: "Swap free", value: "*Yes" },
+    ],
+  },
+  {
+    category: "Institutional",
+    type: "ECN",
+    spread: "0",
+    unit: "pips",
+    commission: "$8 Round",
+    buttonText: "Open ECN Account",
+    features: [
+      { label: "Min. deposit", value: "$25000" },
+      { label: "Min. volume per trade", value: "0.01" },
+      { label: "Max Leverage", value: "1:300" },
+      { label: "Spread type", value: "Raw" },
+      { label: "Spread", value: "From 0" },
+      { label: "Swap free", value: "*Yes" },
+    ],
+  },
+];
+
+
+
+// meta trader file //
+export const tabs = ['Forex', 'Indices', 'CFD stocks', 'Crypto'];
+
+  // Example data to show the "render same menu" logic
+export const assetData = {
+    Forex: [
+      { name: 'EURUSD', buy: '1.0850', sell: '1.0851', change: '+0.02%' },
+      { name: 'GBPUSD', buy: '1.2640', sell: '1.2642', change: '-0.15%' },
+    ],
+    Indices: [
+      { name: 'US500', buy: '5120.5', sell: '5121.5', change: '+0.45%' },
+    ],
+    'CFD stocks': [
+      { name: 'AAPL.us', buy: '175.20', sell: '175.25', change: '+1.20%' },
+    ],
+    Crypto: [
+      { name: 'BTCUSD', buy: '65430', sell: '65450', change: '-2.10%' },
+    ],
+  };
+
+  export const FAQData = [
+  {
+    question: "Is Forex a Lucrative Market?",
+    answer: "Profitability in Forex trading varies and depends on various factors. The Forex market offers high liquidity and significant opportunities, but traders must exercise caution and conduct thorough assessments to avoid unfavorable outcomes."
+  },
+  {
+    question: "Can I Trade Forex With CFDs?",
+    answer: "Yes, CFDs (Contracts for Difference) allow you to speculate on the price movements of currency pairs without owning the underlying asset."
+  },
+  {
+    question: "What Makes MetaTrader 5 Better for Forex Traders?",
+    answer: "MetaTrader 5 offers advanced technical analysis tools, superior algorithmic trading capabilities, and more timeframes compared to its predecessors."
+  },
+  {
+    question: "How do you Manage the Volatility in the Forex Market?",
+    answer: "Managing volatility involves using stop-loss orders, proper position sizing, and staying informed about global economic news events."
+  },
+  {
+    question: "Is Forex an Instrument for Trading in the Futures?",
+    answer: "While Forex usually refers to the spot market, you can trade currency futures contracts on regulated exchanges."
+  }
+];
+
+
+// stocks page data //
+export const stocksData = [
+    {
+      title: "0%",
+      description: "Trade with zero commissions",
+      bgGradient: "bg-gradient-to-br from-[#00F2A9] to-[#076562]",
+    },
+    {
+      title: "$100",
+      description: "Generate income by receiving dividends",
+      bgGradient: "bg-gradient-to-br from-[#00D2FF] to-[#3A7BD5]",
+    },
+    {
+      title: "icon", // Placeholder for the coin icon
+      description: "Buy fractional shares",
+      bgGradient: "bg-gradient-to-br from-[#2E3192] to-[#1BFFFF]",
+      isIcon: true
+    },
+  ];
+
+  // stocks third secton data //
+  export const brands = [
+    { name: 'Netflix', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+    { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg' },
+    { name: 'Tesla', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg' },
+    { name: 'Starbucks', logo: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg' },
+    { name: 'Disney', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney_2011.svg' },
+    { name: 'Nvidia', logo: 'https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg' },
+  ];
+
+  export const FuturesFAQData = [
+  {
+    question: "Can I Trade Forex With CFDs?",
+    answer:
+      "Yes, CFDs (Contracts for Difference) allow you to speculate on the price movements of currency pairs without owning the underlying asset.",
+  },
+  {
+    question: "What Makes MetaTrader 5 Better for Forex Traders?",
+    answer:
+      "MetaTrader 5 offers advanced technical analysis tools, superior algorithmic trading capabilities, and more timeframes compared to its predecessors.",
+  },
+  {
+    question: "How do you Manage the Volatility in the Forex Market?",
+    answer:
+      "Managing volatility involves using stop-loss orders, proper position sizing, and staying informed about global economic news events.",
+  },
+  {
+    question: "Is Forex an Instrument for Trading in the Futures?",
+    answer:
+      "While Forex usually refers to the spot market, you can trade currency futures contracts on regulated exchanges.",
+  },
+];
+
+export const indicesFAQData = [
+  {
+    question: "How does indices trading differ from stock trading?",
+    answer:
+      "Indices trading focuses on the performance of a group of stocks, making them generally less volatile than individual stocks and requiring a different approach to trading.",
+  },
+  {
+    question: "How Do You Trade Futures?",
+    answer:
+      "In futures trading, traders enter contracts that commit them to buy or sell an asset at a set price on a future date. Traders can take long or short positions based on their market outlook and strategy.",
+  },
+  {
+    question: "What factors influence indices?",
+    answer:
+      "Global events and public sentiment have a significant impact on indices. Traders should consider these elements for successful trading.",
+  },
+  {
+    question: "What is the best way to speculate on indices?",
+    answer:
+      "A deep understanding of historical and current market behaviors is vital for informed trading decisions. Important considerations include GDP trends, support and resistance levels, and general market expectations.",
+  },
+];
+
+
+export const CFDStockData = [
+    { name: 'Netflix', standards: '2109', elite: '1709', ecn: '509', platform: 'MT5' },
+    { name: 'Alibaba', standards: '2110', elite: '1710', ecn: '510', platform: 'MT5' },
+    { name: 'Apple', standards: '2110', elite: '1710', ecn: '510', platform: 'MT5' },
+  ];
+export const forexData = [
+  { name: "EUR/USD", standards: "21–23", elite: "17–18", ecn: "5–6", platform: "MT5" },
+  { name: "USD/JPY", standards: "23–25", elite: "20–22", ecn: "8–9", platform: "MT5" },
+  { name: "GBP/USD", standards: "22–24", elite: "18–20", ecn: "6–7", platform: "MT5" },
+];
+
+export const indicesData = [
+  { name: "S&P 500", standards: "2140", elite: "1740", ecn: "540", platform: "MT5" },
+  { name: "USD30 (Dow Jones)", standards: "2300", elite: "1900", ecn: "700", platform: "MT5" },
+  { name: "DAX", standards: "2200", elite: "1800", ecn: "600", platform: "MT5" },
+];
+export const commoditiesData = [
+  { name: "Gold", standards: "25–30", elite: "21–24", ecn: "12–15", platform: "MT5" },
+  { name: "Silver", standards: "25–30", elite: "21–24", ecn: "12–15", platform: "MT5" },
+];
+export const cryptoData = [
+  { name: "BTC/USD", standards: "8000", elite: "1710", ecn: "510", platform: "MT5" },
+  { name: "ETH/USD", standards: "120", elite: "86", ecn: "26", platform: "MT5" },
+  { name: "XRP/USD", standards: "43", elite: "18", ecn: "6", platform: "MT5" },
+];
+
+
+export const featureCards = [
+  {
+    title: "Trade On SGFX",
+    icon: Activity,
+    items: [
+      "12ms Avg. execution time",
+      "9 Timeframes",
+      "23 Analytical objects",
+      "30 Technical indicators",
+    ],
+    button: "Read more about SGFX",
+  },
+  {
+    title: "Why SGFX?",
+    icon: Globe,
+    items: [
+      "Years of Group Excellence",
+      "Advanced technology for efficient trading execution",
+      "Flexible trading options to meet diverse need",
+      "Strong global market presence and expertise",
+    ],
+    button: "Read more about Why Traders Trust Us",
+  },
+  {
+    title: "Trading Accounts",
+    icon: Monitor,
+    items: [
+      "Choose between Gold Spreads",
+      "Platinum Variable Spreads",
+      "VIP Raw Spreads from 0.05pips*",
+    ],
+    button: "Compare Trading Accounts",
+  },
+];
+
+
+export const installationStepsData = [
+  { id: 1, title: 'Download MT5 from the SGFX Website' },
+  { id: 2, title: 'Open the Installer' },
+  { id: 3, title: 'Agree to the Terms' },
+  { id: 4, title: 'Log Into Your SGFX Account' },
+  { id: 5, title: 'Take a Moment to Explore' },
+];

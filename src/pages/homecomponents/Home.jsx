@@ -17,13 +17,11 @@ const Home = () => {
       
       {/* --- BACKGROUND PATTERN --- */}
     
-      <div 
-        className="absolute inset-0 opacity-20 pointer-events-none" 
-        style={{
-          backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-          backgroundSize: '24px 24px' 
-        }}
-      ></div>
+      <img
+      src=""
+      alt=""
+      className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+    />
 
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
         

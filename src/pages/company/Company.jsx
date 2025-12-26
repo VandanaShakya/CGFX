@@ -8,7 +8,7 @@ const Company = () => {
  
   return (
     <>
-         <div className="mt-50 relative w-[70%] m-auto min-h-[500px] md:min-h-[500px] lg:min-h-[800px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-r from-[#0B1441] to-[#0C4FA1] px-6 md:px-12 pt-10">
+         <div className="mt-50 relative w-[70%] m-auto min-h-[500px] md:min-h-[500px] lg:min-h-[800px] flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#0B1441] to-[#0C4FA1] px-6 md:px-12 pt-10">
   
   {/* Floating Coins */}
   <img src="/images/coin-dollar.png" alt="$" className="absolute top-5 left-10 w-16 h-16 animate-float-slow" />
@@ -120,7 +120,9 @@ const Company = () => {
     </div>
 <ExploreTrading/>
 <Testimonial/>
-<Fund/>
+<div className="relative w-full isolate">
+  <Fund />
+</div>
 
     </>
   );

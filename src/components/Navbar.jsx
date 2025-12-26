@@ -1,80 +1,62 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import {
   Facebook, Mail, Instagram, Linkedin, Youtube, Twitter,
   ChevronDown, Menu, X, ArrowRight
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
+  const [activeDesktopDropdown, setActiveDesktopDropdown] = useState(null);
   const navRef = useRef(null);
 
   const navLinks = [
     {
-      name: 'About us',
+      name: "About us",
       subLinks: [
-        { name: 'Company', desc: 'Learn more about us', href: '/company' },
-        { name: 'Regulation & Licenses', desc: 'Fair and transparent trading', href: '/regulation-&-license' },
-        { name: 'Contact Us', desc: 'Get in touch with us', href: '/contact-us' }
+        { name: "Company", to: "/company" },
+        { name: "Regulation & Licenses", to: "/regulation-&-license" },
+        { name: "Contact Us", to: "/contact-us" }
       ]
     },
     {
-      name: 'Tools',
+      name: "Tools",
       subLinks: [
-        { name: 'Economic Calendar', desc: 'Track key market events', href: '#' },
-        { name: 'Forex Market Insights', desc: 'Daily market analysis', href: '/forex-market-watch' },
-        { name: 'Market Technical Analysis', desc: 'In-depth chart patterns', href: '/market-technical-analysis' },
-        { name: 'Global Trading Holiday Schedule', desc: 'Plan your trading days', href: '#' }
+        { name: "Economic Calendar", to: "/tools/economic-calender" },
+        { name: "Forex Market Insights", to: "/tools/forex-market-watch" },
+        { name: "Market Technical Analysis", to: "/tools/market-technical-analysis" },
+        { name: "Global Trading Holiday Schedule", to: "/tools/global-trading" }
       ]
     },
-    { name: 'blogs', href: '/blogs' },
-    { name: 'news', href: '/news' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Promotions', href: '/promotions' },
+    { name: "Blogs", to: "/blogs" },
+    { name: "News", to: "/news" },
+    { name: "Partners", to: "/partners" },
+    { name: "Promotions", to: "/promotions" },
     {
-      name: 'Contact',
+      name: "Documents",
       subLinks: [
-        { name: 'Forms & Documents', desc: 'Legal and account forms', href: '/forms-&-documents' },
-        { name: 'Risk disclosure statement', desc: 'Important risk information', href: '/risk-disclosure' }
+        { name: "Forms & Documents", to: "/forms-&-documents" },
+        { name: "Risk Disclosure Statement", to: "/risk-disclosure" }
       ]
     }
   ];
 
-  const socialIcons = [
-    { Icon: Facebook }, { Icon: Mail }, { Icon: Instagram },
-    { Icon: Linkedin }, { Icon: Youtube }, { Icon: Twitter }
-  ];
-
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const closeOnOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
+        setActiveDesktopDropdown(null);
         setIsMobileMenuOpen(false);
         setActiveMobileDropdown(null);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", closeOnOutside);
+    return () => document.removeEventListener("mousedown", closeOnOutside);
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed top-0 z-50 w-full bg-white shadow-sm font-sans">
-
-      {/* TOP BAR */}
-      <div className="hidden lg:block bg-gradient-to-r from-blue-700 via-blue-500 to-teal-500 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
-          <div className="flex space-x-4">
-            {socialIcons.map(({ Icon }, i) => (
-              <Icon key={i} size={16} fill="currentColor" />
-            ))}
-          </div>
-          <div className="space-x-6 text-sm font-medium">
-            <a href="#">Try Free Demo</a>
-            <a href="#">IB Login</a>
-          </div>
-        </div>
-      </div>
+    <nav ref={navRef} className="fixed top-0 z-50 w-full bg-white shadow-sm">
 
       {/* MAIN NAV */}
       <div className="border-b border-gray-100">
@@ -91,27 +73,65 @@ const Navbar = () => {
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map(link => (
-              <div key={link.name} className="relative group">
-                <a
-                  href={link.href || '#'}
-                  className="flex items-center gap-1 font-semibold text-gray-600 hover:text-blue-600 py-4"
-                >
-                  {link.name}
-                  {link.subLinks && <ChevronDown size={14} />}
-                </a>
+              <div
+                key={link.name}
+                className="relative hover:cursor-pointer"
+                onMouseEnter={() => link.subLinks && setActiveDesktopDropdown(link.name)}
+                onMouseLeave={() => setActiveDesktopDropdown(null)}
+              >
 
-                {link.subLinks && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition">
-                    <div className="bg-white border shadow-xl rounded-xl p-6 flex gap-10">
-                      {link.subLinks.map(sub => (
-                        <a key={sub.name} href={sub.href} className="min-w-[200px]">
-                          <div className="font-bold">{sub.name}</div>
-                          <div className="text-sm text-gray-400">{sub.desc}</div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
+                {/* MAIN ITEM */}
+                {link.subLinks ? (
+                  <button
+                    onClick={() =>
+                      setActiveDesktopDropdown(
+                        activeDesktopDropdown === link.name ? null : link.name
+                      )
+                    }
+                    className="flex items-center gap-1 font-semibold text-gray-600 hover:text-blue-600 py-4 hover:cursor-pointer"
+                  >
+                    {link.name}
+                    <ChevronDown
+                      size={14}
+                      className={`transition ${
+                        activeDesktopDropdown === link.name ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.to}
+                    className="font-semibold text-gray-600 hover:text-blue-600 py-4"
+                  >
+                    {link.name}
+                  </Link>
                 )}
+
+                {/* DROPDOWN */}
+                <AnimatePresence>
+                  {link.subLinks && activeDesktopDropdown === link.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50"
+                    >
+                      <div className="bg-white border shadow-xl rounded-xl p-6 flex gap-10">
+                        {link.subLinks.map(sub => (
+                          <Link
+                            key={sub.name}
+                            to={sub.to}
+                            onClick={() => setActiveDesktopDropdown(null)}
+                            className="min-w-[200px] hover:text-blue-600"
+                          >
+                            <div className="font-bold">{sub.name}</div>
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
               </div>
             ))}
           </div>
@@ -128,7 +148,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (unchanged logic) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -140,7 +160,7 @@ const Navbar = () => {
 
             <motion.div
               className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-white z-50"
-              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
             >
               <div className="p-6 flex justify-between">
                 <span className="font-black text-xl">SGFX</span>
@@ -162,29 +182,42 @@ const Navbar = () => {
                         >
                           {link.name}
                           <ChevronDown
-                            className={`${activeMobileDropdown === link.name && 'rotate-180'} transition`}
+                            className={`transition ${
+                              activeMobileDropdown === link.name ? "rotate-180" : ""
+                            }`}
                           />
                         </button>
 
                         <AnimatePresence>
                           {activeMobileDropdown === link.name && (
                             <motion.div
-                              initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}
+                              initial={{ height: 0 }}
+                              animate={{ height: "auto" }}
+                              exit={{ height: 0 }}
                               className="overflow-hidden pl-4 pb-2"
                             >
                               {link.subLinks.map(sub => (
-                                <a key={sub.name} href={sub.href} className="block py-2 text-sm">
+                                <Link
+                                  key={sub.name}
+                                  to={sub.to}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="block py-2 text-sm"
+                                >
                                   {sub.name}
-                                </a>
+                                </Link>
                               ))}
                             </motion.div>
                           )}
                         </AnimatePresence>
                       </>
                     ) : (
-                      <a href={link.href} className="block py-4 font-bold">
+                      <Link
+                        to={link.to}
+                        className="block py-4 font-bold"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
                         {link.name}
-                      </a>
+                      </Link>
                     )}
                   </div>
                 ))}

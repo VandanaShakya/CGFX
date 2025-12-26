@@ -1,21 +1,22 @@
 import React from 'react'
+import images from '../assets/images';
 
 const payments = [
-  { name: "MPI", img: "/payments/mpi.png" },
-  { name: "Airtel", img: "/payments/airtel.png" },
-  { name: "M-Pesa", img: "/payments/mpesa.png" },
-  { name: "MTN", img: "/payments/mtn.png" },
-  { name: "Wire", img: "/payments/wire.png" },
-  { name: "Kora", img: "/payments/kora.png" },
-  { name: "Bank", img: "/payments/bank.png" },
-  { name: "USDT", img: "/payments/usdt.png" },
-  { name: "Visa", img: "/payments/visa.png" },
+  { name: "MPI", img: images.mpi },
+  { name: "Airtel", img: images.airtel },
+  { name: "M-Pesa", img: images.mpesa },
+  { name: "MTN", img: images.mtn },
+  { name: "Wire", img: images.wireTransfer },
+  { name: "Kora", img: images.koraPay },
+  { name: "Bank", img: images.banktransfer },
+  { name: "USDT", img: images.usdt },
+  { name: "Visa", img: images.visa },
 ];
 
 const Fund = () => {
   return (
     <>
-         <section className="w-full bg-white py-16 px-4 overflow-y-auto">
+         <section className="w-full bg-white py-16 px-4 ">
       <div className=" mx-auto text-center">
         
         {/* Top Label */}
